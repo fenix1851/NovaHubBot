@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Donation</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: #0D1117;
+            color: #C9D1D9;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+    <div class="container">
+        <div class="wrapper">
+            <div class="header">
+                <h1>Donation</h1>
+            </div>
+            <div class="content">
+                <form method="post" action="/generate_invoice" style="margin: 0 auto;">
+                    <label for="crypto_currency">Currency</label>
+                    <div class="input">
+                        <select name="crypto_currency" multiple multiselect-search="true" required="true"
+                            multiselect-hide-x="false" multiselect-max-items="1" required="true">
+                            <option value="BTC">Bitcoin</option>
+                            <option value="ETH">Ethereum</option>
+                            <option value="USDT">Tether</option>
+                            <option value="USDC">USD Coin</option>
+                            <option value="BUSD">Binance USD</option>
+                        </select>
+                    </div>
+                    <label for="amount">Amount(in currency)</label>
+                    <div class="input">
+                        <input type="number" min="2" required="true" name="amount" id="amount" placeholder="Enter amount" />
+                        <span class="input_pseudo"></span>
+                    </div>
+                    <button type="submit">Generate paylink!</button>
+                </form>
+                <div class="footer">
+                    <p class="info" >© 2022 112lab All rights reserved.</p>
+                    <p class="info">By clicking "Submit" you agree to our <a href="https://112lab.space/terms">Terms of Service</a> and <a href="https://112lab.space/privacy">Privacy Policy</a></p>
+                    <p class="info">Developed by: <a href="https://t.me/foxyess2020">Piatiletov Dmitrii</a></p>
+                </div>
+            </div>
+        </div>
+        <script src="/libraries/multiselect.js"></script>
+        <script>
+            window.onload = function () {
+                MultiselectDropdown(window.MultiselectDropdownOptions);
+            }
+            const url = window.location.href;
+            const urlObject = new URL(url);
+            const to_id = urlObject.searchParams.get("to_id");
+            const startup_name = urlObject.searchParams.get("startup_name");
+            const link_to_channel = urlObject.searchParams.get("link_to_channel");
+            if (to_id && startup_name && link_to_channel) {
+                console.log("All params are present");
+            } else {
+                console.log(to_id, startup_name, link_to_channel);
+                window.location.href = "/";
+            }
+            const submit = document.querySelector("button[type='submit']");
+            submit.addEventListener("click", async (e) => {
+                e.preventDefault();
+                const crypto_currency = document.querySelector("select[name='crypto_currency']").value;
+                const amount = document.querySelector("input[name='amount']").value;
+                if (crypto_currency && amount) {
+                    // window.location.href = `/generate_invoice?to_id=${to_id}&startup_name=${startup_name}&link_to_channel=${link_to_channel}&crypto_currency=${crypto_currency}&amount=${amount}`;
+                    // post query to /generate_invoice
+                    if(amount <2){
+                        return alert("Amount should be greater than 2, commission is too high for less than 2");
+                    }
+                    const data = {
+                        to_id,
+                        startup_name,
+                        link_to_channel,
+                        crypto_currency,
+                        amount
+                    }
+                    await fetch("/generate_invoice", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    }).catch(err => {
+                        // console.log(err);
+                        alert("Something went wrong, please try again later");
+                    }).then(result => result.json()).then(data => {
+                        let pay_url  = data.url;
+                        console.log(pay_url);
+                        if(!pay_url) {
+                            window.location.href = "/";
+                        }
+                        else {
+                            // document.querySelector(".button").href = pay_url;
+                            window.location.href = pay_url;
+                        }
+                    })
+                } else {
+                    alert("Please fill all the fields");
+                }
+            })
+        </script>
+</body>
+
+</html>

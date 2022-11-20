@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Donate</title>
+</head>
+<body>
+    <div class="container">
+    <div class="wrapper">
+        <h1>Donate</h1>
+        <p>Click button bellow to donate</p>
+        <a class="button">Click to donate</a>
+    </div>
+    </div>
+    <script>
+        const url = window.location.href;
+        const urlObject = new URL(url);
+        const pay_url = urlObject.searchParams.get("pay_url");
+        if(!pay_url) {
+            window.location.href = "/";
+        }
+        else {
+            document.querySelector(".button").href = pay_url;
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job form</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Job registration form</h1>
+        <form action="/form" method="post" id="formid">
+            <!-- company name -->
+            <label for="companyName">Company name</label>
+            <div class="input">
+                <input type="text" name="companyName" placeholder="Company name" required="true">
+                <span class="input_pseudo"></span>
+            </div>
+            <!-- company description -->
+            <label for="companyDescription">Company description</label>
+            <div class="input">
+                <textarea name="companyDescription" placeholder="Company description" required="true"></textarea>
+                <span class="input_pseudo"></span>
+            </div>
+            <!-- select company scope(one answer) -->
+            <label for="companyScope">Company Scope/Vertical</label>
+            <div class="input">
+                <select name="companyScope" multiple multiselect-search="true" required="true" multiselect-hide-x="false" multiselect-max-items="1" required="true"></select>
+                <span class="input_pseudo"></span>
+            </div>
+            <!-- select company specialist -->
+            <label for="companySpecialist">Specialists needed</label>
+            <div class="input">
+                <select name="companySpecialist" multiple multiselect-search="true" required="true" multiselect-hide-x="false" multiselect-max-items="1" required="true"></select>
+                <span class="input_pseudo"></span>
+            </div>
+            <!-- input company adress -->
+            <label for="companyAdress">City/office address</label>
+            <div class="input">
+                <input type="text" name="companyAdress" placeholder="Company adress" required="true">
+                <span class="input_pseudo"></span>
+            </div>
+
+            <!-- select one work format -->
+            <label for="workFormat">Work format</label>
+            <div class="input">
+                <select name="workFormat" multiple multiselect-search="true" required="true" multiselect-hide-x="false" multiselect-max-items="1" required="true"></select>
+                <span class="input_pseudo"></span>
+            </div>
+            <!-- select one Employment -->
+            <label for="employment">Employment</label>
+            <div class="input">
+                <select name="employment" multiple multiselect-search="true" required="true" multiselect-hide-x="false" multiselect-max-items="1" required="true"></select>
+                <span class="input_pseudo"></span>
+            </div>
+            <!-- input salary plug -->
+            <label for="salary">Salary plug (in $)</label>
+            <div class="input">
+                <input type="text" name="salary" placeholder="Salary" required="true">
+                <span class="input_pseudo"></span>
+            </div>
+            <!-- input job description -->
+            <label for="jobDescription">Job description</label>
+            <div class="input">
+                <textarea name="jobDescription" placeholder="Job description" required="true"></textarea>
+                <span class="input_pseudo"></span>
+            </div>
+            <!-- input responcibilities -->
+            <label for="responcibilities">Responcibilities</label>
+            <div class="input">
+                <textarea name="responcibilities" placeholder="Responcibilities" required="true"></textarea>
+                <span class="input_pseudo"></span>
+            </div>
+
+            <!-- input candidate requirements -->
+            <label for="candidateRequirements">Candidate requirements</label>
+            <div class="input">
+                <textarea name="candidateRequirements" placeholder="Candidate requirements" required="true"></textarea>
+                <span class="input_pseudo"></span>
+            </div>
+
+            <!-- input terms for the candidate -->
+            <label for="termsForCandidate">Terms for the candidate</label>
+            <div class="input">
+                <textarea name="termsForCandidate" placeholder="Terms for the candidate" required="true"></textarea>
+                <span class="input_pseudo"></span>
+            </div>
+            <button type="submit" id="submit_button">Submit</button>
+        </form>
+        <div class="footer">
+            <p class="info" >© 2022 112lab All rights reserved.</p>
+            <p class="info">By clicking "Submit" you agree to our <a href="https://112lab.space/terms">Terms of Service</a> and <a href="https://112lab.space/privacy">Privacy Policy</a></p>
+            <p class="info">Developed by: <a href="https://t.me/foxyess2020">Piatiletov Dmitrii</a></p>
+        </div>
+    </div>
+
+    <script src="/libraries/preeventZoom.js"></script>
+    <script src="/libraries/fetch.js"></script>
+    <script src="/libraries/multiselect.js"></script>
+    <script src="/libraries/sendForm.js"></script>
+    <script>
+      const tg = window.Telegram.WebApp;
+        async function init(){
+            await fillSelect('companyScope', '/work/directions');
+        await fillSelect('companySpecialist', '/work/specialists'); 
+        await fillSelect('workFormat', '/work/formats');
+        await fillSelect('employment', '/work/employment_types');
+        await MultiselectDropdown(window.MultiselectDropdownOptions);
+        }
+        window.onload = init();
+        sendForm(fileRequired=true)
+    </script>
+            
+</body>
+</html>

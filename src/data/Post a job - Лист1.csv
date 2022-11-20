@@ -1,0 +1,13 @@
+Тип вопроса,Обязательное,Валидатор,Поиск,Выводить в сообщение,Заголовок,Вопрос,Ответ,Ответ,Ответ,Ответ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+string,on,,,1,Company name,Company name,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+string,1,,,,Company description,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+answer-one,1,,on,1,Company Scope/Vertical,Project Scope/Vertical,FinTech,GovTech,RegTech,AgTech,EdTech,HealthTech,FoodTech,RetailTech,InsurTech,PropTech,LegalTech,AdTech & MarTech,Wealthtech,Deeptech,Saas,CryptoTech,AI,BioTech,CleanTech,MedTech,Cleantech,Greentech,Crypto,,,,,,,,,,,,,,,,,,,
+answer-one,1,,1,1,Specialists needed,,Chief Product Officer,Product Manager,Project Manager,Product Owner,CTO,CIO,Tech Lead,Team Lead Architect,Head of PMO,Chief Architect,Project Lead,Business Owner,Senior iOS developer,Senior Android developer,Senior web developer,iOS developer,Senior web and iOS developer,Web developer,Smart web and Android developer,Backend developer,Senior frontend developer,Senior backend developer,Full stack developer,Senior QA engineer,Senior QC engineer,QA engineer,QC engineer,Mentor,Advisor,Graphic Designer,Mobile Designer,Product Designer,UI/UX Designer,Head of Operation HR,IT Recruiter,Career Adviser,MarHR,HR-Director,Head Hunter,PR specialist,SMM manager,Marketing specialist
+string,,,,,City/office address,City/office address,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+answer-one,1,,,,Work format,Work format,Office,Remotely,Hybrid (Office+Remotely),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+answer-one,,,,,Employment,,Full time,Part time,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+string,,,,1,Salary plug (in $),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+string,,,,,Job Description, ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+string,,,,,Responsibilities,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+string,,,,,Candidate requirements,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+string,,,,,Terms for the candidate,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

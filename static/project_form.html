@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Project registrtion form</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Project registration form</h1>
+
+      <form action="/form" method="post" id="formid" >
+        <label for="projectName">Project name</label>
+        <div class="input">
+          <input
+            type="text"
+            name="projectName"
+            placeholder="Project name"
+            required="true"
+          />
+          <span class="input_pseudo" />
+        </div>
+        <div>
+          <label for=""AcceptDonations">Do you want to accept donations directly from bot? Click checkbox if you registred in @CryptoTestBot</label>
+
+          <input
+            type="checkbox"
+            name="AcceptDonations"
+            placeholder="AcceptDonations"
+            required="true"
+          />
+        </div>
+        
+
+        <label for="projectStage">Project stage</label>
+        <div class="input">
+          <select
+            name="projectStage"
+            multiple
+            multiselect-search="true"
+            required="true"
+            multiselect-hide-x="false"
+            multiselect-max-items="1"
+            required="true"
+          ></select>
+
+          <span class="input_pseudo" />
+        </div>
+
+        <!-- select for project scope-->
+        <label for="projectScope">Project Scope/Vertical</label>
+        <div class="input">
+          <select
+            name="projectScope"
+            multiple
+            multiselect-search="true"
+            required="true"
+            multiselect-hide-x="false"
+            multiselect-max-items="1"
+            required="true"
+          ></select>
+          <span class="input_pseudo" />
+        </div>
+
+        <!-- select for project specialist-->
+        <label for="projectSpecialist"
+          >What kind of specialists do you need on your team?</label
+        >
+        <div class="input">
+          <select
+            name="projectSpecialist"
+            multiple
+            multiselect-search="true"
+            required="true"
+            multiselect-hide-x="false"
+            multiselect-max-items="100"
+            required="true"
+          ></select>
+          <span class="input_pseudo" />
+        </div>
+
+        <!-- input for project website-->
+        <label for="projectWebsite">Project website (if any)</label>
+        <div class="input">
+          <input
+            type="text"
+            name="projectWebsite"
+            placeholder="Project website"
+            required="true"
+          />
+          <span class="input_pseudo" />
+        </div>
+
+        <!-- input for project description-->
+        <label for="projectDescription">
+          Describe your project by a formula: {Name of startup} makes {Product}
+          for {Target audience} that solves {Problem} with {Technology},
+          improving {Performance}.</label
+        >
+        <div class="input">
+          <textarea
+            name="projectDescription"
+            placeholder="Project description"
+            required="true"
+          ></textarea>
+          <span class="input_pseudo" />
+        </div>
+
+        <!-- input for project markets-->
+        <label for="projectMarkets">
+          What market(s) do you plan to enter?</label
+        >
+        <div class="input">
+          <input
+            type="text"
+            name="projectMarkets"
+            placeholder="Project markets"
+            required="true"
+          />
+          <span class="input_pseudo" />
+        </div>
+        <!-- select for country to relocate-->
+        <label for="countryToRelocate"
+          >What country would you like to relocate your project to? You can
+          choose up to 3 countries granting startup visas.</label
+        >
+        <div class="input">
+          <select
+            name="countryToRelocate"
+            multiple
+            multiselect-search="true"
+            multiselect-hide-x="false"
+            multiselect-max-items="3"
+            required="true"
+          ></select>
+          <span class="input_pseudo" />
+        </div>
+        <!-- input for project revenue-->
+        <label for="projectRevenue">
+          How do you plan to generate revenue (subscription, commission, direct
+          sales, etc.)</label
+        >
+        <div class="input">
+          <input
+            type="text"
+            name="projectRevenue"
+            placeholder="Project revenue"
+            required="true"
+          />
+          <span class="input_pseudo" />
+        </div>
+
+        <!-- input for project investment amount required-->
+        <label for="projectInvestmentAmountRequired"
+          >Investment amount requested (in $)</label
+        >
+        <div class="input">
+          <input
+            type="text"
+            name="projectInvestmentAmountRequired"
+            placeholder="Project investment amount required"
+            required="true"
+          />
+          <span class="input_pseudo" />
+        </div>
+
+        
+
+        <!-- upload deck-->
+        <label for="file"> Upload your project presentation file (deck) (pdf.)</label>
+        <div class="input" >
+          <input
+            type="file"
+            name="file"
+            placeholder="Project deck"
+            required="true"
+            onchange="return fileValidation() "
+            id="file"
+          />
+          <span class="input_pseudo" />
+        </div>
+        <button type="submit" id="submit_button">Submit</button>
+      </form>
+      <div class="footer">
+        <p class="info" >© 2022 112lab All rights reserved.</p>
+        <p class="info">By clicking "Submit" you agree to our <a href="https://112lab.space/terms">Terms of Service</a> and <a href="https://112lab.space/privacy">Privacy Policy</a></p>
+        <p class="info">Developed by: <a href="https://t.me/foxyess2020">Piatiletov Dmitrii</a></p>
+    </div>
+    </div>
+    <script src="/libraries/preeventZoom.js"></script>
+    <script src="/libraries/fetch.js"></script>
+    <script src="/libraries/fileValidator.js"></script>
+    <script src="/libraries/multiselect.js"></script>
+    <script src="/libraries/sendForm.js"></script>
+    <script>
+      const tg = window.Telegram.WebApp;
+      async function init(){
+      await  fillSelect("projectStage", "/project/stages");
+      await fillSelect("projectScope", "/project/directions");
+      await fillSelect("projectSpecialist", "/project/specialists");
+      await fillSelect("countryToRelocate", "/project/countries");
+      MultiselectDropdown(window.MultiselectDropdownOptions);
+      }
+      window.onload = init();
+      sendForm("project")
+    </script>
+  </body>
+</html>

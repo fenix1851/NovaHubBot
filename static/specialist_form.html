@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+    <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/style.css">
+    <title>Specialist registrtion form</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Specialist registration form</h1>
+        <form id="formid" action="/form" method="POST">
+
+            <label for="email" onclick="">Email</label>
+            <div class="input">
+                <input type="text" name="email" placeholder="Email" required="true">
+                <span class="input_pseudo" />
+            </div>
+            <label for="name">Name</label>
+
+            <div class="input">
+                <input type="text" name="name" placeholder="Name" required="true">
+                <span class="input_pseudo" />
+            </div>
+
+            <label for="surname">Surname</label>
+            <div class="input" >
+                <input type="text" name="surname" placeholder="Surname" required="true">
+                <span class="input_pseudo" />
+            </div>
+
+            <label for="position">Position</label>
+            <div class="input" >
+                <input type="text" name="position" placeholder="Position" required="true">
+                <span class="input_pseudo" />
+            </div>
+
+            <label for="location">Location</label>
+            <div class="input" >
+            <input type="text" name="location" placeholder="Location" required="true">
+            <span class="input_pseudo" />
+            </div>
+
+            <label for="links">Links to social networks (Facebook, LinkedIn, Instagram, etc.)</label>
+            <div class="input" >
+            <input type="text" name="links" placeholder="Links to social networks (Facebook, LinkedIn, Instagram, etc.)" required="true">
+            <span class="input_pseudo" />
+            </div>
+
+            <label for="countryToRelocate">What country would you like to relocate your project to? You can choose up to 3 countries granting startup visas.(if you are not considering relocation, click skip)</label>
+            <div class="input" >
+            <select  op.addEventListener ("keypress", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+              }); name="countryToRelocate" multiple multiselect-search="true" required="true"
+            multiselect-hide-x = "false" multiselect-max-items="3" ></select>
+            <span class="input_pseudo" />
+            </div>
+
+            <label for="profession">Your profession (choose something that best describes your duties, rather than a formal role title) </label>
+            
+            <select op.addEventListener ("keypress", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+              }); name="profession" multiple multiselect-search="true" required="true"
+            multiselect-hide-x = "false" multiselect-max-items="100"></select>
+            <div class="input" >
+            <span class="input_pseudo" />
+            </div>
+
+            <label for="directions">What kind of projects are you interested in participating in?</label>
+            <div class="input" >
+            <select op.addEventListener ("keypress", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+              }); name="directions" multiple multiselect-search="true" required="false"
+            multiselect-hide-x = "false" multiselect-max-items="3" >
+            ></select>
+            <span class="input_pseudo" />
+            </div>
+
+            <label for="share">Desirable share of epy project ownershipt (ESOP) (percentage)</label>
+            <div class="input" >
+            <input type="number" name="share" placeholder="Share percentage" required="true">
+            <span class="input_pseudo" />
+            </div>
+
+            <label for="salary">Desirable monthly salary (US $)</label>
+            <div class="input" >
+            <input type="number" name="salary" placeholder="Salary expectation" required="true">
+            <span class="input_pseudo" />
+            </div>
+
+            <label for="perHour">Price per hour (US $)</label>
+            <div class="input" >
+            <input type="number" name="perHour" placeholder="Price per hour" required="true">
+            <span class="input_pseudo" />
+            </div>
+
+            <label for="experience">Total experience in the profession (in years, an integer)</label>
+            <div class="input" >
+            <input type="number" name="experience" placeholder="Experience" required="true">
+            <span class="input_pseudo" />
+            </div>
+
+            <label for="otherExperience">Have you had experience in any other professions? If yes, what kind (how many years, what industries, etc.)? *</label>
+            <div class="input" >
+            <input type="text" name="otherExperience" placeholder="Other experience" required="true">
+            <span class="input_pseudo" />
+            </div>
+
+            <label for="strengths">What do you consider to be your strengths, your unique expertise?</label>
+            <div class="input" >
+            <input type="text" name="strengths" placeholder="Strengths" required="true">
+            <span class="input_pseudo" />
+            </div>
+
+            <label for="methodOfCommunication">The preferred method of communication (email/telegram/whatsapp/etc.)</label>
+            <div class="input" >
+            <input type="text" name="methodOfCommunication" placeholder="Method of communication" required="true">
+            <span class="input_pseudo" />
+            </div>
+            
+
+            <!-- форма для загрузки cv-->
+            <label for="file">Upload your CV (.pdf)</label>
+            <div class="input" >
+            <input type="file" onchange="return fileValidation()" name="file" id="file" placeholder="Upload your CV(.pdf)" required="true" class="input_file">
+            <span class="input_pseudo" />
+            </div>
+            <button id="submit_button" type="submit">Submit</button>
+        </form>
+        <!-- copirating and other useless information -->
+        <div class="footer">
+            <p class="info" >© 2022 112lab All rights reserved.</p>
+            <p class="info">By clicking "Submit" you agree to our <a href="https://112lab.space/terms">Terms of Service</a> and <a href="https://112lab.space/privacy">Privacy Policy</a></p>
+            <p class="info">Developed by: <a href="https://t.me/foxyess2020">Piatiletov Dmitrii</a></p>
+        </div>
+
+        
+    </div>
+    <script src="/libraries/preeventZoom.js"></script>
+    <script src="/libraries/fetch.js"></script>
+    <script src="/libraries/multiselect.js"></script>
+    <script src="/libraries/fileValidator.js"></script>
+    <script> 
+        let tg = window.Telegram.WebApp;
+        async function init(){
+            await fillSelect("profession",'/specialist/professions');
+        await fillSelect("directions",'/specialist/directions');
+        await fillSelect("countryToRelocate",'/specialist/countries');
+        MultiselectDropdown(window.MultiselectDropdownOptions);
+        }
+        window.onload = init();
+        let formButton = document.querySelector('button[type="submit"]');
+        let form = document.getElementById('form');
+        let toSend = {};
+
+        try{
+        var button = document.getElementById('submit_button');
+        button.addEventListener('click', function(e){
+            e.preventDefault();
+            // check if all fields are filled
+            let inputs = document.querySelectorAll('input');
+            let selects = document.querySelectorAll('select');
+            let allFilled = true;
+            for(let i = 0; i < inputs.length; i++){
+                if((inputs[i].value == '' || (inputs[i].type == 'file' && inputs[i].files.length == 0)) && inputs[i].required){
+                    console.log(inputs[i]);
+                    allFilled = false;
+                    break;
+                }
+            }
+            for(let i = 0; i < selects.length; i++){
+                if(selects[i].value == ''){
+                    console.log(selects[i]);
+                    allFilled = false;
+                    break;
+                }
+            }
+            if(allFilled){
+            var form = document.getElementById('formid');
+            var formData = new FormData(form);
+            fetch('/form', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result.data)
+                toSend = result.data
+                console.log('Success:', result);
+                tg.sendData(JSON.stringify(toSend));
+                tg.close();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });}
+            else{
+                alert('Please fill all the fields');
+            }
+        });
+    }
+        catch (error) {
+            console.error(error);
+        }
+    </script>
+
+</body>
+</html>

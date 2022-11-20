@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+    <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/style.css">
+    <title>Specialist registrtion form</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Test registration form</h1>
+        <form id="formid"  method="POST" enctype="multipart/form-data">
+            <label for="email" onclick="">Email</label>
+            <div class="input">
+                <input type="text" name="email" placeholder="Email" required="true">
+                <span class="input_pseudo" />
+            </div>
+            <!-- upload -->
+            <label for="file">Upload file</label>
+            <div class="input">
+                <input type="file" name="file" placeholder="Upload file" required="true">
+                <span class="input_pseudo" />
+            </div>
+
+            <button id="submit_button" type="submit">Submit</button>
+        </form>
+        
+    </div>
+    <script src="/libraries/fetch.js"></script>
+    <script> 
+    try{
+        var button = document.getElementById('submit_button');
+        button.addEventListener('click', function(e){
+            e.preventDefault();
+            var form = document.getElementById('formid');
+            var formData = new FormData(form);
+            fetch('/form', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    }
+        catch (error) {
+            console.error(error);
+        }
+    </script>
+    <script src="/libraries/multiselect.js"></script>
+
+</body>
+</html>
